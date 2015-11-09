@@ -33,7 +33,9 @@ function browserSyncInit(baseDir, browser) {
    *
    * For more details and option, https://github.com/chimurai/http-proxy-middleware/blob/v0.0.5/README.md
    */
-  // server.middleware = proxyMiddleware('/users', {target: 'http://jsonplaceholder.typicode.com', proxyHost: 'jsonplaceholder.typicode.com'});
+  // proxy request to "/api/*" to django rest backend on port 8000
+  // note, have to set up a mapping for tests.com in /etc/hosts
+  server.middleware = proxyMiddleware('/api', {target: 'http://tests.com:8000'});
 
   browserSync.instance = browserSync.init({
     startPath: '/',
