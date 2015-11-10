@@ -1,14 +1,13 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
+    angular
     .module('posterScoresFrontend')
     .run(runBlock);
 
-  /** @ngInject */
-  function runBlock($log) {
+    /** @ngInject */
+    function runBlock() {
 
-    $log.debug('runBlock end');
-  }
+    }
 
 })();

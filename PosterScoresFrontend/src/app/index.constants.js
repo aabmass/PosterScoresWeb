@@ -1,10 +1,9 @@
-/* global malarkey:false, moment:false */
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
+    angular
     .module('posterScoresFrontend')
-    .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    // .constant('malarkey', malarkey)
+    ;
 
 })();

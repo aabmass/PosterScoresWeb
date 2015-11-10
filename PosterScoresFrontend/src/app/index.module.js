@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('posterScoresFrontend', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'toastr']);
+    .module('posterScoresFrontend', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'satellizer']);
 
 })();
