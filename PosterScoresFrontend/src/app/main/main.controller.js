@@ -1,39 +1,30 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
+    angular
     .module('posterScoresFrontend')
     .controller('MainController', MainController);
 
-  /** @ngInject */
-  function MainController($timeout, webDevTec, toastr) {
-    var vm = this;
+    /** @ngInject */
+    function MainController($auth, $log) {
+        var vm = this;
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1447094983359;
-    vm.showToastr = showToastr;
+        vm.loggedIn = $auth.isAuthenticated();
+        vm.user = {};
 
-    activate();
+        $log.log($auth.getPayload());
 
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
+        vm.authenticate = function(provider) {
+            $auth.authenticate(provider, {
+                provider: provider
+            }).then(function(response) {
+                vm.loggedIn = true;
+                
+                $log.log(response.data.first_name);
+                vm.user.first = response.data.first_name;
+                vm.user.last = response.data.last_name;
+            });
+        };
+
     }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
-  }
 })();
