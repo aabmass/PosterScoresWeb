@@ -121,10 +121,18 @@ REST_FRAMEWORK = {
 # PSA configuration
 SOCIAL_AUTH_FACEBOOK_KEY = settings_secret.SOCIAL_AUTH_FACEBOOK_KEY
 SOCIAL_AUTH_FACEBOOK_SECRET = settings_secret.SOCIAL_AUTH_FACEBOOK_SECRET
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email',]
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = settings_secret.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = settings_secret.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email',]
+
+REST_SOCIAL_OAUTH_ABSOLUTE_REDIRECT_URI = 'http://tests.com:3000'
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
     # and maybe some others ...
     'django.contrib.auth.backends.ModelBackend',
 )

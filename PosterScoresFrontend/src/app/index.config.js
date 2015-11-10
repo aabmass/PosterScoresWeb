@@ -21,8 +21,12 @@
 
         $authProvider.facebook({
             url: 'api/login/social/jwt_user/',
-            clientId: '1495812887379106',
-            scope: ['email']
+            clientId: '1495812887379106'
+        });
+
+        $authProvider.google({
+            url: 'api/login/social/jwt_user/',
+            clientId: '878605533270-1gvuekfmhkcjigh1fai2rclklir6fj8t.apps.googleusercontent.com'
         });
 
     }
