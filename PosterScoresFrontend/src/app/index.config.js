@@ -20,13 +20,14 @@
         $locationProvider.html5Mode(true)
 
         $authProvider.facebook({
-            url: 'api/login/social/jwt_user/',
+            url: 'api/login/social/jwt_user/facebook',
             clientId: '1495812887379106'
         });
 
         $authProvider.google({
-            url: 'api/login/social/jwt_user/',
-            clientId: '878605533270-1gvuekfmhkcjigh1fai2rclklir6fj8t.apps.googleusercontent.com'
+            url: 'api/login/social/jwt_user/google-oauth2',
+            clientId: '916074107110-ok6risi8u3lppk9m43v4tj4efhcrroe9.apps.googleusercontent.com',
+            redirectUri: window.location.origin + '/'
         });
 
     }

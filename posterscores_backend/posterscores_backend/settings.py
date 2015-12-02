@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 
     'rest_framework',
 
@@ -128,11 +129,12 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = settings_secret.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = settings_secret.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
 SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['email',]
 
-REST_SOCIAL_OAUTH_ABSOLUTE_REDIRECT_URI = 'http://tests.com:3000'
+# REST_SOCIAL_OAUTH_ABSOLUTE_REDIRECT_URI = 'http://tests.com:3000'
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.facebook.FacebookOAuth2',
     'social.backends.google.GoogleOAuth2',
-    # and maybe some others ...
+
+    # this must remain
     'django.contrib.auth.backends.ModelBackend',
 )

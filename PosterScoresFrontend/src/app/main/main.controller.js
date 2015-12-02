@@ -15,11 +15,7 @@
         $log.log($auth.getPayload());
 
         vm.authenticate = function(provider) {
-            var provider_backend = provider === "google" ? "google-oauth2" : provider;
-
-            $auth.authenticate(provider, {
-                provider: provider_backend
-            })
+            $auth.authenticate(provider)
             .then(function(response) {
                 vm.loggedIn = true;
                 
