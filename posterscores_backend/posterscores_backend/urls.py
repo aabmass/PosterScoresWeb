@@ -20,5 +20,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     # social auth views
-    url(r'^api/login/', include('social_user_auth.urls')),
+    url(r'^api/login/', include('rest_social_auth.urls_jwt')),
 ]

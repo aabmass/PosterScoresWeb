@@ -6,9 +6,10 @@
     .config(config);
 
     /** @ngInject */
-    function config($logProvider, $authProvider, $locationProvider) {
+    function config($windowProvider, $logProvider, $authProvider, $locationProvider) {
         // Enable log
         $logProvider.debugEnabled(true);
+        var $window = $windowProvider.$get();
 
         /*
          * use HTML5 mode for nicer urls. Note:
@@ -20,14 +21,14 @@
         $locationProvider.html5Mode(true)
 
         $authProvider.facebook({
-            url: 'api/login/social/jwt_user/facebook',
+            url: 'api/login/social/jwt/facebook',
             clientId: '1495812887379106'
         });
 
         $authProvider.google({
-            url: 'api/login/social/jwt_user/google-oauth2',
+            url: 'api/login/social/jwt/google-oauth2',
             clientId: '916074107110-ok6risi8u3lppk9m43v4tj4efhcrroe9.apps.googleusercontent.com',
-            redirectUri: window.location.origin + '/'
+            redirectUri: $window.location.origin + '/'
         });
 
     }
